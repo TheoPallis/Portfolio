@@ -1,6 +1,6 @@
 In this project we analyse a dataset of 5.000 rows containing info on item types, amount of units sold, profit, revenue and date sold.
 Software used : SQLServer
-
+Dateset used : https://eforexcel.com/wp/downloads-18-sample-csv-files-data-sets-for-testing-sales (5.000 rows)
 Our project objectives :
 
 1) Cleaning the data
