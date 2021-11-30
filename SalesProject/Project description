@@ -1,0 +1,23 @@
+In this project we analyse a dataset of 5.000 rows containing info on item types, amount of units sold, profit, revenue and date sold.
+Software used : SQLServer
+
+Our project objectives :
+
+1) Cleaning the data
+	A) Check for typos
+	B) Check for nulls
+	C) Check for blanks
+	D) Check for duplicate rows
+	E) Show outliers for the column units_sold 
+	
+2) Insights
+	A) Most recent 5 orders showing item type and Order_ID
+	B) Oldest 5 orders showing item type and Order_ID
+	C) Most sold 5 item types  
+	D) Most profitable 5 item types
+	E) Total profit by location for each item type
+	F) Best location for sales for each item type
+	G) Revenue by year for each item type 
+	H) Best month for profit for each item type
+	I) Sales performed each date 
+	L) Most sold item type for each year
