@@ -1,0 +1,20 @@
+                                                                            Project description
+                                                                            
+                                                                            
+In this project we use a covid-19 dataset to draw insights about the 01-05-2021 - 31-10-2021 period in Greece regarding the :
+
+  1) Total number of deaths at the end of the 6 month period.
+	2) Monthly average number of new deaths.
+	3) Total number of new deaths.
+	4) Average number of  new deaths for each of the last six months.
+
+We also take a broader look at the data for Greece regarding the :
+
+  1) Vaccinated percentage of the population.
+	2) Which months was the percentage of the vaccinated under 20 perecent?
+	3) New deaths for each date last month.
+  
+Before proceeding with the analysis of the data we clean and prepare the data as follows : 
+	1) Replace nulls,blanks with 0s.
+	2) Create temporary table containing only the Greek records.
+	3) Create temporary table containing only the Greek records for the last six months.
