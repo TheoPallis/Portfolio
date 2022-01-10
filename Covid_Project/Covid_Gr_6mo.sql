@@ -56,7 +56,7 @@ WHERE Location = 'Greece'
 
 ----------------------------------------------------------------B) Last six months in Greece--------------------------------------------------------------
 
---1) Total number of deaths at the end of the 6 month period
+--1) Total number of deaths 
 
 SELECT	
 	MAX(Cast(total_deaths as float)) as total_deaths
