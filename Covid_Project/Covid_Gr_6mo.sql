@@ -7,8 +7,8 @@ A)Cleaning the data
 	3)Create temporary table containing only the Greek records for the last six months
 B) Last six months in Greece
 	1) Total number of deaths at the end of the 6 month period
-	2) Monthly average number of new deaths
-	3) Total number of new deaths
+	2) Total number of new deaths
+	3) Monthly average number of new deaths
 	4) Average number of  new deaths for each of the last six months
 C) General numbers
 	1) Vaccinated percentage of the population
@@ -61,18 +61,19 @@ WHERE Location = 'Greece'
 SELECT	
 	MAX(Cast(total_deaths as float)) as total_deaths
 	FROM #CovidGreece6
+	
+--2) Total number of new deaths 
+SELECT	
+	Sum(Cast(new_deaths as float)) as new_deaths_sum
+FROM #CovidGreece6
 
---2) Average number of new deaths each month
+--3) Average number of new deaths each month
 
 SELECT 	
 	cast(
 	Avg(Cast(new_deaths as float)) as decimal) as aver_deaths_6mo --Round the average of deaths by casting as decimal
 FROM #CovidGreece6
 
---3) Total number of new deaths 
-SELECT	
-	Sum(Cast(new_deaths as float)) as new_deaths_sum
-FROM #CovidGreece6
 
 --4) Average number of  new deaths for each of the last six months
 
