@@ -9,7 +9,8 @@ B) Last six months in Greece
 	1) Total number of deaths at the end of the 6 month period
 	2) Total number of new deaths
 	3) Monthly average number of new deaths
-	4) Average number of  new deaths for each of the last six months
+	4) Highest number of new deaths per day
+	5) Average number of  new deaths for each of the last six months
 C) General numbers
 	1) Vaccinated percentage of the population
 	2) Which months was the percentage of the vaccinated under 20 perecent?
@@ -67,15 +68,21 @@ SELECT
 	Sum(Cast(new_deaths as float)) as new_deaths_sum
 FROM #CovidGreece6
 
---3) Average number of new deaths each month
+--3) Average number of new deaths each day
 
 SELECT 	
 	cast(
 	Avg(Cast(new_deaths as float)) as decimal) as aver_deaths_6mo --Round the average of deaths by casting as decimal
 FROM #CovidGreece6
 
+4) Highest number of new deaths per day
 
---4) Average number of  new deaths for each of the last six months
+SELECT 	
+	cast(
+	Max(Cast(new_deaths as float)) as decimal) as max_deaths_6mo 
+
+
+--5) Average number of  new deaths for each of the last six months
 
 SELECT cast(
 AVG(CAST(new_deaths as float)) as DECIMAL) as months 
