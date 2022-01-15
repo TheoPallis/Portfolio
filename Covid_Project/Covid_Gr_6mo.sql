@@ -79,14 +79,14 @@ FROM #CovidGreece6
 
 SELECT 	
 cast(
-Avg(Cast(new_deaths as float)) as decimal) as aver_deaths_6mo --Round the average of deaths by casting as decimal
+Avg(Cast(new_deaths as float)) as int) as aver_deaths_6mo --Round the average of deaths by casting as decimal
 FROM #CovidGreece6
 
 4) Highest number of new deaths per day
 
 SELECT 	
 cast(
-Max(Cast(new_deaths as float)) as decimal) as max_deaths_6mo 
+Max(Cast(new_deaths as float)) as int) as max_deaths_6mo 
 FROM #CovidGreece6
 
 5) Number of deaths per day on October 2021.
@@ -106,7 +106,7 @@ MAX(
 FROM #CovidGreece
 
 
---01)Which months was the percentage of the vaccinated under 20 perecent?
+--Extra1) Which months was the percentage of the vaccinated under 20 perecent?
 
 
 
@@ -125,17 +125,15 @@ GROUP BY MONTH(DATE)
 )
 Select cast (vactopop as float)
 from Vac_CTE
-WHERE vactopop < 20
-
---WHERE vactopop  < 20.00
---GROUP BY MONTH(date)
+WHERE vactopop < 20.00
+GROUP BY MONTH(date)
 
 
 
 
 
 
---02) Average number of  new deaths for each of the last six months
+--Extra2) Average number of  new deaths for each of the last six months
 
 SELECT cast(
 AVG(CAST(new_deaths as float)) as DECIMAL) as months 
