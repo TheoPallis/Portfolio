@@ -56,7 +56,7 @@ WHERE Location = 'Greece'
 	AND continent is not null
 	AND date > dateadd(m,-6,getdate())              --> Substract 7 months from current date
 	- datepart(d,getdate())			                --> Substract current date's number of days to reach the beginning of the starting  month 
-                                                    --> Starting date : 0q-07-021
+                                                    --> Starting date : 01-07-021
 	AND date < getdate() -datepart(d,getdate()-1)   --> Likewise, to reach the beginning of the ending month ( substract 1 to include 01-01-2022)
 
 -- View contents of temp table sorted by latest date
