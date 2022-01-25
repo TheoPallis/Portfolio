@@ -54,7 +54,7 @@ INTO #CovidGreece6
 FROM Covid_Db..[owid-covid-data] 
 WHERE Location = 'Greece'
 	AND continent is not null
-	AND date > dateadd(m,-6,getdate())              --> Substract 7 months from current date
+	AND date > dateadd(m,-6,getdate())              --> Substract 6 months from current date
 	- datepart(d,getdate())			                --> Substract current date's number of days to reach the beginning of the starting  month 
                                                     --> Starting date : 01-07-021
 	AND date < getdate() -datepart(d,getdate()-1)   --> Likewise, to reach the beginning of the ending month ( substract 1 to include 01-01-2022)
