@@ -51,7 +51,7 @@ if navigation =='Workout Log':
 	date = st.date_input('Select the date :')											#  Get the date
 	ex_cols = st.slider ('Number of exercises', max_value = 10) 									# Get number of exercsises -> Create equal number of columns
 	if st.button(" Today's Workout ") :                          									# Button
-		print(f" Alright {name}, today's workout consists of { ex_cols) exercises. Think you can make it ?" )			# Confirm number of exercises/NFX2 		      
+		print(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )			# Confirm number of exercises/NFX2 		      
 		if st.button(" Bring it on! ") : 											# Start the workout
 			w_data = pd.Dataframe()                   									# Create new  workout dataframe							
 			for e in range (0, ex_cols) :  		  									# Get names of exercises (number of exercises = slider)
