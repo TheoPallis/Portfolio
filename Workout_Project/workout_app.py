@@ -60,13 +60,14 @@ if navigation =='Workout Log':
 				set_number = st.selectbox ('Number of sets') 								# Get number of sets
 				for reps in range (0, set_number) :									# Get number of reps for each set
 					rep_number = st.select_box ('Number of reps')							# Get number of reps
-					new_workout = w_data.append(rep_number)								# Add rep entries to new dataframe
+					new_workout = w_data.append(set_number)								# Add rows equal to nubmer of sets -> NFX3) 
+
 					if st_button("Finished"!) :
+						data.append(new_workout)
 						print (new_workout)									# Show new workout dataframe			
 						download_csv = new_workout.to_csv(f " {date} 's_Workout_{name}) 			# Get csv
 						st.download_button ('Download your workout', download_csv) 				# Download button for csv
-
-
+						
 # Workout Analysis Page
 
 if navigation =='Workout Analysis':													# Navigate to "page" Workout Analysis
@@ -81,5 +82,6 @@ if navigation =='Workout Analysis':													# Navigate to "page" Workout Ana
 # Notes (NFX = Need to Fix)
 #NFX1 ->  In the future add a selectbox with previously entered user names	
 #NFX2 -> In the future add a 'Hold your horses, I made a mistake" button -> edit the selected number of exercises
-#NFX3 -> Use product from itertools for double loop
+#NFX3 -> This adds the sum the number of sets-> Need the max number of sets?
+#NFX4 -> Use product from itertools for double loop
 
