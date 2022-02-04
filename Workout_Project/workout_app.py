@@ -30,6 +30,8 @@ for name in data.columns :
 
 list_ex = ['Bicep Curls', 'Tricep Extensions', 'Military Raises', 'Push Ups', 'Squats']
 
+melted = pd.melt(grp, var_name="Exercise", ignore_index=False)
+	
 charts = px.line(melted,
          y='value',
          facet_col='Exercise',
@@ -71,7 +73,6 @@ if navigation =='Workout Analysis':
  if st.button('Total reps each day') :
  	grp = data.groupby('Date').sum()
 	grp 
-	melted = pd.melt(grp, var_name="Exercise", ignore_index=False)
 	melted
  if st.button('Analytical View'):
  	data
