@@ -48,7 +48,7 @@ if navigation =='Workout Log':
 		for e in range (0, ex_cols) :  
 			sel_ex	= st.selectbox (list_ex)
 			set_number = st.selectbox ('Number of sets')
-				for reps in range (0,100) :
+				for reps in set_number :
 					rep_number = st.select_box ('Number of reps')
 
 
