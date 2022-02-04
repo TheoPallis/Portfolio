@@ -47,6 +47,7 @@ navigation = st.sidebar.radio( "Select Page",('Workout Log', 'Workout Analysis')
 # This function creates a new dataframe and appends to it a number of empty rows (currently) equal to the max selected number of sets. 
 
 if navigation =='Workout Log':
+    @st.cache(allow_output_mutation=True)	
     def new_wout() : 
 	name= st.text_input (" Today's champion is : " ) 										# Get user's name/ NFX1 		
 	date = st.date_input('Select the date :')											#  Get the date
