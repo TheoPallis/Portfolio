@@ -54,8 +54,8 @@ if navigation =='Workout Log':
 	ex_cols = st.slider ('Number of exercises', max_value = 10) 									# Get number of exercsises -> Create equal number of columns
 	if st.button(" Today's Workout ") :                          									# Button
 		return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )			# Confirm number of exercises/NFX2 		      
-		if st_button("Nope"!) : ex_cols = st.slider ('Number of exercises', max_value = 10) 		
-		if st.button(" Bring it on! ") : 											# Start the workout
+		if st_button("Nope"!) : ex_cols = st.slider ('Number of exercises', max_value = 10) 					# If user gives wrong input -> re_define number of exercises.
+		elif st.button(" Bring it on! ") : 											# Start the workout
 			w_data = pd.Dataframe()                   									# Create new  workout dataframe							
 			for e in range (0, ex_cols) :  		  									# Get names of exercises (number of exercises = slider)
 				sel_ex	= st.selectbox (list_ex)   
