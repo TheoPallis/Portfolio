@@ -54,6 +54,7 @@ if navigation =='Workout Log':
 	ex_cols = st.slider ('Number of exercises', max_value = 10) 									# Get number of exercsises -> Create equal number of columns
 	if st.button(" Today's Workout ") :                          									# Button
 		return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )			# Confirm number of exercises/NFX2 		      
+		if st_button("Nope"!) : ex_cols = st.slider ('Number of exercises', max_value = 10) 		
 		if st.button(" Bring it on! ") : 											# Start the workout
 			w_data = pd.Dataframe()                   									# Create new  workout dataframe							
 			for e in range (0, ex_cols) :  		  									# Get names of exercises (number of exercises = slider)
@@ -68,7 +69,8 @@ if navigation =='Workout Log':
 						return (new_workout)									# Show new workout dataframe			
 						download_csv = new_workout.to_csv(f " {date} 's_Workout_{name}) 			# Get csv
 						st.download_button ('Download your workout', download_csv) 				# Download button for csv
-						
+		
+			
 # Workout Analysis Page
 
 if navigation =='Workout Analysis':													# Navigate to "page" Workout Analysis
@@ -82,7 +84,6 @@ if navigation =='Workout Analysis':													# Navigate to "page" Workout Ana
 
 # Notes (NFX = Need to Fix)
 #NFX1 ->  In the future add a selectbox with previously entered user names	
-#NFX2 -> In the future add a 'Hold your horses, I made a mistake" button -> edit the selected number of exercises
-#NFX3 -> This adds the sum the number of sets-> Need the max number of sets?
-#NFX4 -> Use product from itertools for double loop
+#NFX2 -> This adds the sum the number of sets-> Need the max number of sets?
+#NFX3 -> Use product from itertools for double loop
 
