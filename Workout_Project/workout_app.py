@@ -44,27 +44,27 @@ st.sidebar.header("Navigation")
 navigation = st.sidebar.radio( "Select Page",('Workout Log', 'Workout Analysis'))
 
 
-# Get a selection list for the inputted number of exercises
+# This function creates a new dataframe and appends to it a number of empty rows (currently) equal to the max selected number of sets. 
 
 if navigation =='Workout Log':
+    def new_wout() : 
 	name= st.text_input (" Today's champion is : " ) 										# Get user's name/ NFX1 		
 	date = st.date_input('Select the date :')											#  Get the date
 	ex_cols = st.slider ('Number of exercises', max_value = 10) 									# Get number of exercsises -> Create equal number of columns
 	if st.button(" Today's Workout ") :                          									# Button
-		print(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )			# Confirm number of exercises/NFX2 		      
+		return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )			# Confirm number of exercises/NFX2 		      
 		if st.button(" Bring it on! ") : 											# Start the workout
 			w_data = pd.Dataframe()                   									# Create new  workout dataframe							
 			for e in range (0, ex_cols) :  		  									# Get names of exercises (number of exercises = slider)
 				sel_ex	= st.selectbox (list_ex)   
 				w_data[e] = sel_ex                									# Rename columns according to the inputted names
 				set_number = st.selectbox ('Number of sets') 								# Get number of sets
-				for reps in range (0, set_number) :									# Get number of reps for each set
+				for reps in range (0, set_number.max()) :								# Get number of reps for each set
 					rep_number = st.select_box ('Number of reps')							# Get number of reps
 					new_workout = w_data.append(set_number)								# Add rows equal to nubmer of sets -> NFX3) 
-
 					if st_button("Finished"!) :
 						data.append(new_workout)
-						print (new_workout)									# Show new workout dataframe			
+						return (new_workout)									# Show new workout dataframe			
 						download_csv = new_workout.to_csv(f " {date} 's_Workout_{name}) 			# Get csv
 						st.download_button ('Download your workout', download_csv) 				# Download button for csv
 						
