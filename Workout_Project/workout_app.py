@@ -1,4 +1,5 @@
 
+
 #!/usr/bin/env python
 # coding: utf-8
 
@@ -27,27 +28,29 @@ session_state = SessionState.get(df=data)
 
 
 
-#------------------------Calculations------------------------------------------
+
+
+
+#------------------------Calculations-----------------------------------------------------------------------------------------------------------
 
 
 
 
 
 
-list_ex = ['Bicep Curls', 'Tricep Extensions', 'Military Raises', 'Push Ups', 'Squats']							# Current list of exercises
+list_ex = ['Bicep Curls', 'Tricep Extensions', 'Military Raises', 'Push Ups', 'Squats']									# Create a list of exercises
 
-grp = data.groupby('Date').sum()													# Grouped by date total reps for each exercise
-
-melted = pd.melt(grp, var_name="Exercise", ignore_index=False)										# Melted exercise groups
+grp = data.groupby('Date').sum()																						# Group exercises in default dataframe by date												
+melted = pd.melt(grp, var_name="Exercise", ignore_index=False)															# Melt the dataframe						
 	
-charts = px.line(melted,														# Trend line subplots for each exercise -> Show reps per date
+charts = px.line(melted,																								# Create subplots	
          y='value',
          facet_col='Exercise',
          facet_col_spacing=0.1)
 
 
 
-# -- Sidebar configuration
+# -- ------------------------------------------------Sidebar configuration----------------------------------------------------------------------
 
 st.sidebar.header("Navigation")
 navigation = st.sidebar.radio( "Select Page",('Workout Log', 'Workout Analysis'))
@@ -58,42 +61,96 @@ navigation = st.sidebar.radio( "Select Page",('Workout Log', 'Workout Analysis')
 if navigation =='Workout Log':
     @st.cache(allow_output_mutation=True)	
     def new_wout() : 
-	name= st.text_input (" Today's champion is : " ) 										# Get user's name/ NFX1 		
-	date = st.date_input('Select the date :')											#  Get the date
-	ex_cols = st.slider ('Number of exercises', max_value = 10) 									# Get number of exercsises -> Create equal number of columns
-	if st.button(" Today's Workout ") :                          									# Button
-		return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )			# Confirm number of exercises/NFX2 		      
-		if st_button("Nope"!) : ex_cols = st.slider ('Number of exercises', max_value = 10) 					# If user gives wrong input -> re_define number of exercises.
-		elif st.button(" Bring it on! ") : 											# Start the workout
-			w_data = pd.Dataframe()                   									# Create new  workout dataframe							
-			for e in range (0, ex_cols) :  		  									# Get names of exercises (number of exercises = slider)
-				sel_ex	= st.selectbox (list_ex)   
-				w_data[e] = sel_ex                									# Rename columns according to the inputted names
-				set_number = st.selectbox ('Number of sets') 								# Get number of sets
-				for reps in range (0, set_number.max()) :								# Get number of reps for each set
-					rep_number = st.select_box ('Number of reps')							# Get number of reps
- 					session_state.df = session_state.df.append(set_number, ignore_index=True)			# Lock changes/persistent dataframe
-					#new_workout = w_data.append(set_number)							# Add rows equal to nubmer of sets -> NFX3) 
-					if st_button("Finished"!) :
-						data.append(new_workout)
-						return (new_workout)									# Show new workout dataframe			
-						download_csv = new_workout.to_csv(f " {date} 's_Workout_{name}) 			# Get csv
-						st.download_button ('Download your workout', download_csv) 				# Download button for csv
+	name= st.text_input (" Today's champion is : " ) 																		
+	date = st.date_input('Select the date :')																			
+	ex_cols = st.slider ('Number of exercises', max_value = 10) 
+
+	if st.button(" Today's Workout ") :                          														
+		return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )
+		if st_button("Nope"!) : ex_cols = st.slider ('Number of exercises', max_value = 10) 	
+
+		elif st.button(" Bring it on! ") : 																				
+			w_data = pd.Dataframe() 
+			                																							# Create new  workout dataframe							
+			for e in range (0, ex_cols) :  		  																		# Number of loops = previouly inputted ex number
+				sel_ex	= st.selectbox (list_ex)   																		# For each exercise get its name
+				w_data[e] = sel_ex                																		# Rename columns according to the inputted names
+				set_number = st.selectbox ('Number of sets') 
+																														# For each exercise get number of sets
+				for sets in range (0, set_number.max()) : 
+					def fill_reps(df, name):																			# This function fills each exercise column with the selected number of reps / Gets number of reps for each set for each exercise
+    				for row in range (df.shape[0]): 																    # Number of loops = count of rows (shape[0])
+        				rep_number = st.select_box ('Number of reps')  													# Input number of reps
+        				df.at[row,name]= rep_number 
+        																												# Go to selected cell -> fill it with rep number
+        		fill_reps(w_data, w_data[e])
+				session_state.df = session_state.df.append(set_number, ignore_index=True)								# Lock changes/persistent dataframe -> NFX7)
+				new_workout = w_data.append(set_number)																	# Add rows equal to number of sets -> NFX3) 
+				if st_button("Finished"!) :
+					data.append(new_workout)
+					return (new_workout)																				# Show new workout dataframe			
+					download_csv = new_workout.to_csv(f " {date} 's_Workout_{name}) 									# Get csv						
+					st.download_button ('Download your workout', download_csv) 											# Download button for csv
 		
 			
 # Workout Analysis Page
+# NFX8)
 
-if navigation =='Workout Analysis':													# Navigate to "page" Workout Analysis
+if navigation =='Workout Analysis':																						# Navigate to "page" Workout Analysis
  if st.button('Total reps each day') :							
-	grp 																# Sum of reps for each exercise each day
+	grp 																												# Sum of reps for each exercise each day
 	melted								
- if st.button('Analytical View'):													# Original dataframe
+ if st.button('Analytical View'):																						# Original dataframe
  	data
- if st.button('Show me the charts!') :													# Show trend-line subplots (y axis = reps for each exercise,x axis = date) 												
+ if st.button('Show me the charts!') :																					# Show trend-line subplots (y axis = reps for each exercise,x axis = date) 												
 	charts	
 
+
+
+
+
+
+#NFX0 -> Use product from itertools for double loop
+
+				
+# for e in range (0, ex_cols) :  		  																			# Number of loops = previouly inputted ex number
+# 	sel_ex	= st.selectbox (list_ex)   																				# For each exercise get its name
+# 	w_data[e] = sel_ex                																				# Rename columns according to the inputted names
+# 	set_number = st.selectbox ('Number of sets') 																	# For each exercise get number of sets
+# 	for sets in range (0, set_number.max()) : 
+# 		def fill_reps(df, name):																					# This function fills each exercise column with the selected number of reps / Gets number of reps for each set for each exercise
+#     		for row in range (df.shape[0]): 																    	# Number of loops = count of rows (shape[0])
+#         		rep_number = st.select_box ('Number of reps')  														# Input number of reps
+#         		df.at[row,name]= rep_number 
+
+
+
+
+
+
+
+
+
+
+
+
 # Notes (NFX = Need to Fix)
-#NFX1 ->  In the future add a selectbox with previously entered user names	
-#NFX2 -> This adds the sum the number of sets-> Need the max number of sets?
-#NFX3 -> Use product from itertools for double loop
-#NFX4 -> Persistent Dataframe
+#NXX0)-> Does 'nope!' loop back to original choice?
+#NFX1 -> In the future add a selectbox with previously entered user names	
+#NFX2 -> Is using the max number of sets to calculate the needed rows the optimal solution?
+#NFX3 -> If it is, is this the proper syntax ? (0, set_number.max()) 
+#NFX4 -> new_workout = w_data.append(set_number) ->  (do not append)
+#NFX5 ->  Is this the proper syntax? -> fill_reps(w_data, w_data[e]) ->
+#NFX6 ->  Are the ifs/elifs properly used? (nested, alternate syntax -> multiple ifs)
+#NFX7 -> Is df the correct dataframe to lock changes?
+
+
+
+
+
+
+# NFXLast) -> View buttons as columns
+
+# Sources
+* https://stackoverflow.com/questions/62835169/how-to-insert-a-value-from-an-input-in-a-specific-row-and-column-in-a-pandas-dat
+
