@@ -22,7 +22,16 @@ def get_data():
 	return pd.read_csv(path)
 data = get_data()
 
+session_state = SessionState.get(df=data)
+
+
+
+
 #------------------------Calculations------------------------------------------
+
+
+
+
 
 
 list_ex = ['Bicep Curls', 'Tricep Extensions', 'Military Raises', 'Push Ups', 'Squats']							# Current list of exercises
@@ -63,7 +72,8 @@ if navigation =='Workout Log':
 				set_number = st.selectbox ('Number of sets') 								# Get number of sets
 				for reps in range (0, set_number.max()) :								# Get number of reps for each set
 					rep_number = st.select_box ('Number of reps')							# Get number of reps
-					new_workout = w_data.append(set_number)								# Add rows equal to nubmer of sets -> NFX3) 
+ 					session_state.df = session_state.df.append(set_number, ignore_index=True)			# Lock changes/persistent dataframe
+					#new_workout = w_data.append(set_number)							# Add rows equal to nubmer of sets -> NFX3) 
 					if st_button("Finished"!) :
 						data.append(new_workout)
 						return (new_workout)									# Show new workout dataframe			
@@ -86,4 +96,4 @@ if navigation =='Workout Analysis':													# Navigate to "page" Workout Ana
 #NFX1 ->  In the future add a selectbox with previously entered user names	
 #NFX2 -> This adds the sum the number of sets-> Need the max number of sets?
 #NFX3 -> Use product from itertools for double loop
-
+#NFX4 -> Persistent Dataframe
