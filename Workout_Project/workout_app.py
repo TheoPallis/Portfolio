@@ -67,10 +67,12 @@ if navigation =='Workout Log':
 		name= st.text_input (" Today's champion is : " ) 																## This block gets the general details of the workout and the number of exercises/columns																
 		ex_cols = st.slider ('Number of exercises', max_value = 10) 
 		name_ex()	
+		
 		if st.button(" Today's Workout ") :                          														
 			return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )
-			if st_button("Nope"!) : ex_cols = st.slider ('Number of exercises', max_value = 10) 	
-
+			if st_button("Nope"!) : 
+				ex_cols = st.slider ('Number of exercises', max_value = 10) 	
+				return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )
 		elif st.button(" Bring it on! ") : 																		## This block starts the workout 
 			w_data = pd.Dataframe()																			# Create new  workout dataframe 
 			for ex in range (0, ex_cols) :  		  															# Number of loops = previouly inputted ex number
