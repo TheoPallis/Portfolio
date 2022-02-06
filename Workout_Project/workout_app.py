@@ -61,11 +61,12 @@ if navigation =='Workout Log':
     
     @st.cache(allow_output_mutation=True)	
     def new_wout() : 
-		
+		date = st.date_input('Select the date :')
+  		@st.cache(allow_output_mutation=True)																		
+		def name_ex() :																					# This function caches the user name and exercise number
 		name= st.text_input (" Today's champion is : " ) 																## This block gets the general details of the workout and the number of exercises/columns																
-		date = st.date_input('Select the date :')																			
 		ex_cols = st.slider ('Number of exercises', max_value = 10) 
-		
+		name_ex()	
 		if st.button(" Today's Workout ") :                          														
 			return(f" Alright {name}, today's workout consists of { ex_cols} exercises. Think you can make it ?" )
 			if st_button("Nope"!) : ex_cols = st.slider ('Number of exercises', max_value = 10) 	
@@ -74,7 +75,7 @@ if navigation =='Workout Log':
 			w_data = pd.Dataframe()																			# Create new  workout dataframe 
 			for ex in range (0, ex_cols) :  		  															# Number of loops = previouly inputted ex number
 				sel_ex	= st.selectbox (list_ex)   																# For each exercise get its name
-				w_data[ex] = sel_ex                																# Rename columns according to the inputted names
+				w_data[ex] = w_data[ex].rename('Ex' : sel_ex)                													# Rename columns according to the inputted names
 				set_number = st.selectbox ('Number of sets') 															# For each exercise get number of sets
 					for sets in range (0, set_number.max()) : 
 						@st.cache(allow_output_mutation=True)	
@@ -91,7 +92,7 @@ if navigation =='Workout Log':
 							return (new_workout)															# Show new workout dataframe			
 							download_csv = new_workout.to_csv(f " {date} 's_Workout_{name}) 									# Get csv						
 							st.download_button ('Download your workout', download_csv) 										# Download button for csv
-			
+new_wout()
 			
 # Workout Analysis Page
 # NFX8)
