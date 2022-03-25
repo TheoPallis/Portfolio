@@ -48,10 +48,10 @@
 								<img src="images/hd0.jpg" alt="" />
 							</span>
 							<header class="major">
-								<h1>Sales Analysis </h1>
+								<h1>Price prediction </h1>
 							</header>
 							<div class="content">
-							<p> Uncovering sales insights
+							<p> Predicting future prices of bulldozers
 							</div>
 						</div>
 					</section>
@@ -61,15 +61,16 @@
 
 						<!-- One -->
 							<section id="one">
-
 								<div class="inner">
 									<header class="major">
 										<h2>Project description</h2>
 									</header>
-									<p> This project represents a typical analysis of a sales dataset using Pandas and Streamlit.
-									<br></br>
-<font size="-1"> Sample Dataset used : <i>https://www.kaggle.com/carrie1/ecommerce-data (540.000 entries) </i> </font>
-
+									<p> 
+Developing a machine learning model stack to accurately predict future prices of bulldozers.</p>								
+ Dataset used : <a href =https://www.kaggle.com/c/bluebook-for-bulldozers/data> Click me!</a> </font>	
+ <br> </br>
+										<li><a href="" class="button">View the code </a></li>
+											</ul>
 
 </p>
 
@@ -79,99 +80,87 @@
 						<!-- Two -->
 							<section id="two" class="spotlights">
 								<section>
-									<a href=''#" class="image">
+									<a href="#" class="image">
 										<img src="images/hd6.jpg" 
 										alt="" data-position="center center" />
 									</a>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3> Cleaning the data </h3>
+												<h3> Previewing the dataset </h3>
 											</header>
-											<ol>								
-	<li> Converted columns to appropriate types  </li>
-	<li> Analysed negative values in columns   </li>
-	<li> Removed negative values in columns where possible </li>
-	<li> Analysed non-numerical entries in numerical column </li>
-	<li> Removed nulls where possible </li>
-	<li> Removed dupes </li>
-
-
-	<li> Replaced illegal entries. </li>
-	<li> Created new clean dataset. </li>
-	
-
-	
-
-
-
-
-
-		
+											<ol>
+											
+	<li> Importing the necessary packages</li>
+	<li> Plotting distribution of sale price column	</li>
+	<li> Converting sale date column to date format </li>
+	<li> Plotting relationship between price and sale date </li>
+	<li> Backing up dataframe </li>
 
 											</ol>
 											<ul class="actions">
-												<li><a href="https://github.com/TheoPallis/Portfolio/blob/Site/Sales_Analysis_2/Cleaning_Store_Dataset.ipynb" class="button"> JUPYTER NOTEBOOK </a></li>
+												<li><a href="https://docs.google.com/spreadsheets/d/16-KIiQP_CCCrOgGK8hY18CeYVYBYG9mbV0I_3_Fu3bg/edit?usp=sharing" class="button">spreadsheet </a></li>
 											</ul>
 										</div>
 									</div>
 								</section>
 								<section>
-									<a href = ""https://github.com/TheoPallis/Portfolio/blob/Site/Sales_Analysis_2/Cleaning_Store_Dataset.ipynb" class="image">
-										<img src="images/hd7.jpg" 
-										alt="" data-position="center center" />
+									<a href="https://github.com/TheoPallis/Portfolio/tree/Site/SalesProject" class="image">
+										<img src="images/hd7.jpg" alt="" align = "left" />
 									</a>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>KPIs</h3>
+												<h3>Preprocessing the data</h3>
 											</header>
-	<li> Which customers have spent the most money? </li>
-	<li> Which products overall sell the most?</li>
-	<li> Which products overall are the most profitable? </li>
+											<p><ol>
+    <li> Feauture Engineering Month, Year columns </li>
+	<li> Checking for missing values </li>
+	<li> Displaying columns with string values </li>
+	<li> Turn string values to categorical values </li>
+	<li> Get percentage of missing values in every column </li>
+	<li> Impute missing numerical variables with median </li>
+	<li> Turn categorical values to numbers </li>
 	
+
+
 </ol></p>
-											
+											<ul class="actions">
+												<li><a href="https://github.com/TheoPallis/Portfolio/tree/Site/SalesProject" class="button">Jupyter Notebook </a></li>
+											</ul>
 										</div>
 									</div>
 								</section>
 								<section>
-									
-								<a  href="#" 
-								class="image">
+									<a href="https://public.tableau.com/app/profile/theo.pallis/viz/Salesdashboard_16417291436300/Dashboard2" class="image">
 										<img src="images/hd5.jpg" alt="" data-position="25% 25%" />
 									</a>
 									<div class="content">
-										<div class="inner">
+									
 											<header class="major">
-												<h3>App Features :</h3>
-
-
-
+												<h3>Modeling </h3>
+							
+<p>
 <ol>
-	<li> Total profit, sales and most sold item based on filters applied. </li>
-	<li> Top 10 customers based on the filters applied. </li>
-	<li> Products which the top 10 customers bought (bar charts).</li>
-    <li> Easily sortable dataframe.</li>
-</ol>
-<!--
-The dashboard can be filtered by :
-<ol>
+<li> Define features (x) and target (y).
+<li> Split data into training and validation set by year </li>
+<li> The date of the workout </li>
+<li> Define model evaluation function </li>
+<li> Fitting the model </li>
+<li> Evaluating the model </li>
+<li> Hyperrparameter tuning </li>
+<li> Getting the best hyperparameters for the model </li>
+<li> Creating a model with the best hyperparameters </li>
 
-<li>year </li>
-<li>month </li>
-<li>day </li>
-<li>item type </li>
-<li>country (dropdown menu and interactive map) </li>
-<li>sum of total profit </li>
-</ol>
--->
- 											</header											<p>
 
-</p></p><ul class="actions">
-												<li><a href="" class="button">App - Currently offline </a></li>
+</ol>
+</p>
+<p>
+											
+<ul class="actions">
+												<li><a href="https://github.com/TheoPallis/Portfolio/blob/Site/Workout_Project/workout_app.py" class="button"> Python Code</a></li>
 											</ul>
-	
+											</p>
 										</div>
 									</div>
 								</section>
@@ -184,22 +173,12 @@ The dashboard can be filtered by :
 										<h2>Project info</h2>
 									</header>
 									<p>
-This project could be roughly divided into 2 phases. In the first step, the data is cleaned.
-<br> </br> At the same time, any anomalies present in the dataset are uncovered and explained thoroughly.
-<br> </br> After a clear picture of the dataset and its unique properties is acquired, we move to the visualisation phase.
-<br> </br> In this phase, the data is presented in the most digestible and clear format, making the best use of various filters, key metrics and charts. 
-
-
-<br> </br>
-Software used : Python (Pandas), Jupyter Notebooks, Streamlit
-<br></br>	
-					<ul> <li> <a href="index.hmtl" class="button"> View more projects</a></li>
+<li>Converting test dataframe to train dataframe format </li>
+<li> prices using the created model </li>
+<li>Plot Feature Imprortance 
+									<ul class="actions">
+										<li><a href="index.hmtl" class="button next"> View more projects</a></li>
 									</ul>
-
-												
-										
-
-
 								</div>
 							</section>
 
@@ -261,7 +240,7 @@ Software used : Python (Pandas), Jupyter Notebooks, Streamlit
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
-		
+			
 						</div>
 					</footer>
 
