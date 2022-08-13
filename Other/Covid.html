@@ -40,18 +40,20 @@
 						</ul>
 					
 					</nav>
-				<!-- Banner -->
+		<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
+					<section id="banner" ">
 						<div class="inner">
+
 							<span class="image">
 								<img src="images/hd0.jpg" alt="" />
 							</span>
+
 							<header class="major">
-								<h1>Price prediction </h1>
+								<h1>Covid Analysis </h1>
 							</header>
 							<div class="content">
-							<p> Predicting future prices of bulldozers
+							<p>Analysis of the Pandemic
 							</div>
 						</div>
 					</section>
@@ -65,117 +67,124 @@
 									<header class="major">
 										<h2>Project description</h2>
 									</header>
-									<p> 
-Developing a machine learning model stack to accurately predict future prices of bulldozers.</p>								
- Dataset used : <a href =https://www.kaggle.com/c/bluebook-for-bulldozers/data> Click me!</a> </font>	
- <br> </br>
-										<li><a href="" class="button">View the code </a></li>
-											</ul>
+									<p> This project takes a look into the particular death statistics of the pandemic, in an attempt to reach sensible conclusions.
+									<br></br>
+This project focuses on the state of the pandemic <i> in Greece </i>	 during <i> May-November 2021</i>. 
+<br> </br>
+  <font size="-1"> 
+<i> Dateset used : https://github.com/owid/covid-19-data/tree/master/public/data 
+</i>
+</font>
 
 </p>
-
+<ul class="actions">
+<li><a href="#" class="button"> SQL CONTAINER </a></li>
+</ul>
+			
 								</div>
 							</section>
 
 						<!-- Two -->
 							<section id="two" class="spotlights">
 								<section>
-									<a href="#" class="image">
-										<img src="images/hd6.jpg" 
-										alt="" data-position="center center" />
+									<a href="https://github.com/TheoPallis/Portfolio/blob/Site/Covid_Project/Covid_Gr_6mo.sql" class="image">
+										<img src="images/hd0.jpg" 
+										alt="" data-position="25%" />
 									</a>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3> Previewing the dataset </h3>
+												<h3> Cleaning the data </h3>
 											</header>
 											<ol>
-											
-	<li> Importing the necessary packages</li>
-	<li> Plotting distribution of sale price column	</li>
-	<li> Converting sale date column to date format </li>
-	<li> Plotting relationship between price and sale date </li>
-	<li> Backing up dataframe </li>
-
-											</ol>
-											<ul class="actions">
-												<li><a href="https://docs.google.com/spreadsheets/d/16-KIiQP_CCCrOgGK8hY18CeYVYBYG9mbV0I_3_Fu3bg/edit?usp=sharing" class="button">spreadsheet </a></li>
-											</ul>
-										</div>
+	<li> Replaced nulls,blanks with 0s.
+	<li> Created temporary table containing only the Greek records.
+	<li> Created temporary table containing only the Greek records for the last six months.
+	</ol>
+<ul class="actions">
+<li><a href="https://github.com/TheoPallis/Portfolio/blob/Site/Covid_Project/Covid_Gr_6mo.sql" class="button"> Sql  code </a></li>
+</ul>
 									</div>
-								</section>
-								<section>
-									<a href="https://github.com/TheoPallis/Portfolio/tree/Site/SalesProject" class="image">
-										<img src="images/hd7.jpg" alt="" align = "left" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Preprocessing the data</h3>
+</div>
+</section>
+<section>
+<a href="https://github.com/TheoPallis/Portfolio/blob/Site/Covid_Project/Covid_Gr_6mo.sql" class="image">
+<img	src="images/hd6.jpg"  alt="" data-position="center center" />
+</a>
+<div class="content">
+<div class="inner">
+	<header class="major">
+												<h3> Analysing the data </h3>
 											</header>
-											<p><ol>
-    <li> Feauture Engineering Month, Year columns </li>
-	<li> Checking for missing values </li>
-	<li> Displaying columns with string values </li>
-	<li> Turn string values to categorical values </li>
-	<li> Get percentage of missing values in every column </li>
-	<li> Impute missing numerical variables with median </li>
-	<li> Turn categorical values to numbers </li>
-	
+	<ol>
+
+
+<li> Number of total deaths compared to the number of new deaths. </li>
+<li> Average  and highest number of new deaths per day.</li>
+<li>  Number of deaths per day on October 2021. </li>
+<li> Current vaccinated percentage of the population. </li>
+<li> Average number of  new deaths for each of the last six months </li>
+<li> Which months was the percentage of the vaccinated under 20 perecent? </li>
+
 
 
 </ol></p>
 											<ul class="actions">
-												<li><a href="https://github.com/TheoPallis/Portfolio/tree/Site/SalesProject" class="button">Jupyter Notebook </a></li>
+													<li><a href="https://github.com/TheoPallis/Portfolio/blob/Site/Covid_Project/Covid_Gr_6mo.sql	" class="button"> SQL Code </a></li>
 											</ul>
 										</div>
-									</div>
+									</div>	
 								</section>
 								<section>
-									<a href="https://public.tableau.com/app/profile/theo.pallis/viz/Salesdashboard_16417291436300/Dashboard2" class="image">
-										<img src="images/hd5.jpg" alt="" data-position="25% 25%" />
+									<a href="hhttps://public.tableau.com/app/profile/theo.pallis/viz/PortfolioCovidProject/Dashboard-Deaths" class="image">
+										<img src="images/hd5.jpg" alt="" data-position="center center" />
 									</a>
 									<div class="content">
-									
+										<div class="inner">
 											<header class="major">
-												<h3>Modeling </h3>
-							
-<p>
+												<h3>Dashboard</h3>
+<br> </br>
+								
+
 <ol>
-<li> Define features (x) and target (y).
-<li> Split data into training and validation set by year </li>
-<li> The date of the workout </li>
-<li> Define model evaluation function </li>
-<li> Fitting the model </li>
-<li> Evaluating the model </li>
-<li> Hyperrparameter tuning </li>
-<li> Getting the best hyperparameters for the model </li>
-<li> Creating a model with the best hyperparameters </li>
-
-
+<li> Number of total deaths compared to the number of new deaths. </li>
+<li> Average and highest number of new deaths per day. </li> 
+<li> Number of deaths per day on October 2021 </li>
+<li> Current vaccinated percentage of the population </li>
+<li> Number of deaths in 2021 per day  in relation to the number of the vaccinations. </li>
 </ol>
-</p>
-<p>
-											
-<ul class="actions">
-												<li><a href="https://github.com/TheoPallis/Portfolio/blob/Site/Workout_Project/workout_app.py" class="button"> Python Code</a></li>
+
+
+</p></p>
+											<ul class="actions">
+												<li><a href="https://public.tableau.com/app/profile/theo.pallis/viz/PortfolioCovidProject/Dashboard-Deaths" class="button"> Dashboard</a></li>
 											</ul>
-											</p>
 										</div>
 									</div>
 								</section>
 							</section>
 
+	
+
+
+
+
+
+
+
+
 						<!-- Three -->
 							<section id="three">
 								<div class="inner">
+
 									<header class="major">
 										<h2>Project info</h2>
 									</header>
 									<p>
-<li>Converting test dataframe to train dataframe format </li>
-<li> prices using the created model </li>
-<li>Plot Feature Imprortance 
+Software used : SQL Server, Tableau, Docker,s Coffee (lots!)
+<br></br>
+
+</p>
 									<ul class="actions">
 										<li><a href="index.hmtl" class="button next"> View more projects</a></li>
 									</ul>
@@ -240,7 +249,7 @@ Developing a machine learning model stack to accurately predict future prices of
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
-			
+						
 						</div>
 					</footer>
 
